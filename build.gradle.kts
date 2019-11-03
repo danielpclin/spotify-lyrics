@@ -29,6 +29,7 @@ dependencies {
     compile(group = "org.apache.commons", name = "commons-lang3", version = "3.1")
     compile(group = "org.apache.commons", name = "commons-csv", version = "1.7")
     compile(group = "net.java.dev.jna", name = "jna", version = "4.5.0")
+    compile("org.jsoup:jsoup:1.12.1")
 
     // Use JUnit test framework
     testImplementation("junit:junit:4.12")
@@ -41,4 +42,16 @@ application {
 
 javafx {
     modules("javafx.controls", "javafx.fxml")
+}
+
+tasks{
+    javadoc {
+        options.encoding = "UTF-8"
+    }
+    compileJava {
+        options.encoding = "UTF-8"
+    }
+    compileTestJava {
+        options.encoding = "UTF-8"
+    }
 }
