@@ -1,4 +1,4 @@
-package com.danielpclin;
+package com.danielpclin.spotifyLyrics;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;

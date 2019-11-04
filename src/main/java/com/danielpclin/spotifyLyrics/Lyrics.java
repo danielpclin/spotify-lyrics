@@ -1,4 +1,4 @@
-package com.danielpclin;
+package com.danielpclin.spotifyLyrics;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

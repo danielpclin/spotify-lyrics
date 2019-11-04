@@ -14,30 +14,37 @@ plugins {
     application
 
     id("org.openjfx.javafxplugin") version "0.0.8"
+    id("org.beryx.jlink") version "2.16.2"
 }
 
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
     // This dependency is used by the application.
     implementation("com.google.guava:guava:28.0-jre")
 
-    compile(group = "org.apache.commons", name = "commons-lang3", version = "3.1")
-    compile(group = "org.apache.commons", name = "commons-csv", version = "1.7")
-    compile(group = "net.java.dev.jna", name = "jna", version = "4.5.0")
-    compile("org.jsoup:jsoup:1.12.1")
+    implementation(group = "org.apache.commons", name = "commons-lang3", version = "3.1")
+    implementation(group = "org.apache.commons", name = "commons-csv", version = "1.7")
+    implementation(group = "net.java.dev.jna", name = "jna", version = "4.5.0")
+    implementation("org.jsoup:jsoup:1.12.1")
 
     // Use JUnit test framework
     testImplementation("junit:junit:4.12")
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 application {
     // Define the main class for the application
-    mainClassName = "com.danielpclin.App"
+    mainClassName = "com.danielpclin.spotifyLyrics.App"
 }
 
 javafx {
@@ -58,4 +65,12 @@ tasks.withType<Jar> {
     }
 
     from(configurations.runtime.get().map {if (it.isDirectory) it else zipTree(it)})
+}
+
+jlink{
+    launcher {
+        name = "Spotify Lyrics"
+    }
+    addExtraDependencies("javafx")
+    imageZip.set(project.file("$buildDir/distributions/${rootProject.name}-${javafx.platform.classifier}.zip"))
 }

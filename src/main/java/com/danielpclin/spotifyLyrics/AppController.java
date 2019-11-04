@@ -1,4 +1,4 @@
-package com.danielpclin;
+package com.danielpclin.spotifyLyrics;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;

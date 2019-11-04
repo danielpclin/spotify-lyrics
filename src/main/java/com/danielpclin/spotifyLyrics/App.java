@@ -1,4 +1,4 @@
-package com.danielpclin;
+package com.danielpclin.spotifyLyrics;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
