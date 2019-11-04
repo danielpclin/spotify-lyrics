@@ -30,7 +30,6 @@ public class AppController {
             String[] spotifyTitleArr = currentSpotifyTitle.split(" - ");
             title = spotifyTitleArr[1];
             artist = spotifyTitleArr[0];
-            System.out.println(title + " - " + artist);
             lyricsTextArea.setText(Lyrics.getLyrics(title, artist));
             spotifyTitle = currentSpotifyTitle;
         }

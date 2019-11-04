@@ -44,14 +44,18 @@ javafx {
     modules("javafx.controls", "javafx.fxml")
 }
 
-tasks{
-    javadoc {
-        options.encoding = "UTF-8"
+tasks.withType<JavaCompile>{
+    options.encoding = "UTF-8"
+}
+
+tasks.withType<Javadoc>{
+    options.encoding = "UTF-8"
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = application.mainClassName
     }
-    compileJava {
-        options.encoding = "UTF-8"
-    }
-    compileTestJava {
-        options.encoding = "UTF-8"
-    }
+
+    from(configurations.runtime.get().map {if (it.isDirectory) it else zipTree(it)})
 }

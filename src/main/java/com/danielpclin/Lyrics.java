@@ -40,7 +40,7 @@ class Lyrics {
 
     private static String removeMojimWatermark(String lyrics){
         return Arrays.stream(lyrics.split(System.lineSeparator()))
-                .filter(s -> !(s.contains("Mojim.com") || s.contains("更多更詳盡歌詞")))
+                .filter(s -> !(s.contains("Mojim.com") || s.contains("更多更詳盡歌詞")) || s.contains("提供動態歌詞"))
                 .map(String::strip)
                 .collect(Collectors.joining("\n"));
 
