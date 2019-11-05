@@ -44,7 +44,7 @@ java {
 
 application {
     // Define the main class for the application
-    mainClassName = "com.danielpclin.spotifyLyrics.App"
+    mainClassName = "com.danielpclin/com.danielpclin.spotifyLyrics.App"
 }
 
 javafx {
@@ -71,6 +71,5 @@ jlink{
     launcher {
         name = "Spotify Lyrics"
     }
-    addExtraDependencies("javafx")
     imageZip.set(project.file("$buildDir/distributions/${rootProject.name}-${javafx.platform.classifier}.zip"))
 }
