@@ -1,0 +1,7 @@
+.app{
+    -fx-font-size: 16px;
+}
+
+TextArea.textarea {
+    -fx-faint-focus-color: -fx-control-inner-background;
+}
