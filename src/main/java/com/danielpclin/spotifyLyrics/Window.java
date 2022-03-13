@@ -59,12 +59,10 @@ class Window {
 
     private static String getMacTitle() {
         throw new UnsupportedOperationException("OS not supported");
-        return "";
     }
 
     private static String getLinuxTitle() {
         throw new UnsupportedOperationException("OS not supported");
-        return "";
     }
 
 }
