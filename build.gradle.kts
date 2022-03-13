@@ -14,7 +14,7 @@ plugins {
     application
 
     id("org.openjfx.javafxplugin") version "0.0.8"
-    id("org.beryx.jlink") version "2.16.2"
+    id("org.beryx.jlink") version "2.25.0"
 }
 
 repositories {
@@ -26,7 +26,7 @@ repositories {
 
 dependencies {
     // This dependency is used by the application.
-    implementation("com.google.guava:guava:28.0-jre")
+    implementation("com.google.guava:guava:31.0.1-jre")
 
     implementation(group = "org.apache.commons", name = "commons-lang3", version = "3.1")
     implementation(group = "org.apache.commons", name = "commons-csv", version = "1.7")
@@ -36,7 +36,7 @@ dependencies {
 
 
     // Use JUnit test framework
-    testImplementation("junit:junit:4.12")
+    testImplementation("junit:junit:4.13.2")
 }
 
 java {
@@ -70,8 +70,13 @@ tasks.withType<Jar> {
 }
 
 jlink{
+    mergedModule {
+        requires("jdk.crypto.ec")
+    }
+
     launcher {
         name = "Spotify Lyrics"
+        noConsole = true
     }
     imageZip.set(project.file("$buildDir/distributions/${rootProject.name}-${javafx.platform.classifier}.zip"))
 }
