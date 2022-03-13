@@ -10,7 +10,7 @@ public class AppController {
 
     @FXML private TextArea lyricsTextArea;
 
-    private Timer scanTimer = new Timer(true);
+    private final Timer scanTimer = new Timer(true);
     private String spotifyTitle = "";
 
     @FXML

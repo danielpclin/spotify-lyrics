@@ -25,7 +25,7 @@ class Lyrics {
             Document searchDoc = Jsoup.connect("https://mojim.com/"+ title +".html?t3").get();
             Elements elements = searchDoc.select("dd.mxsh_dd2, .mxsh_dd1");
             for(Element element : elements){
-                if(element.child(1).child(0).html().contains(artist)){
+                if(element.child(1).child(0).html().contains(artist) || artist.contains(element.child(1).child(0).html())){
                     Document songDoc = Jsoup.connect("https://mojim.com/"+ element.child(3).child(0).attr("href")).get();
                     songDoc.select("br").append("br2\\n");
                     lyrics.add(removeMojimWatermark(songDoc.selectFirst("dl#fsZx1").text().replace("br2\\n", System.lineSeparator())));
@@ -45,5 +45,7 @@ class Lyrics {
                 .collect(Collectors.joining("\n"));
 
     }
+
+//    private static String getLyricsGoogle(String title, String artist)
 
 }

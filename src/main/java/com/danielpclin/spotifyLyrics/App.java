@@ -23,6 +23,7 @@ public class App extends Application {
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/spotify.png")));
         primaryStage.setScene(scene);
         primaryStage.setTitle("Spotify Lyrics");
+        primaryStage.setAlwaysOnTop(true);
         primaryStage.show();
     }
 }

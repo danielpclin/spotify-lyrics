@@ -31,7 +31,9 @@ dependencies {
     implementation(group = "org.apache.commons", name = "commons-lang3", version = "3.1")
     implementation(group = "org.apache.commons", name = "commons-csv", version = "1.7")
     implementation(group = "net.java.dev.jna", name = "jna", version = "4.5.0")
-    implementation("org.jsoup:jsoup:1.12.1")
+    implementation(group = "org.seleniumhq.selenium", name = "selenium-chrome-driver", version = "3.141.59")
+    implementation(group = "org.jsoup", name = "jsoup", version = "1.12.1")
+
 
     // Use JUnit test framework
     testImplementation("junit:junit:4.12")
